@@ -30,5 +30,18 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+	{
+        resolve: `gatsby-source-wordpress`,
+        options: {
+            // Your WordPress source.
+            baseUrl: `https://www.registerpartnership.in/`,
+			url: 'https://www.registerpartnership.in/graphql',
+            protocol: `https`,
+            // Only fetches posts, tags and categories from the baseUrl.
+            includedRoutes: ['**/posts', '**/tags', '**/categories'],
+            // Not using ACF so putting it off.
+            useACF: false
+        }
+    },
   ],
 }
