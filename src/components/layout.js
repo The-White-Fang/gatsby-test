@@ -15,13 +15,13 @@ import Header from "./header";
 import "./layout.css";
 
 const Layout = ({ children }) => {
-	// const data = useStaticQuery(graphql`
-	// 	query MyQuery {
-	// 		wpPage(id: "10852", idType: DATABASE_ID) {
-	// 			content
-	// 		}
-	// 	}
-	// `);
+	const data = useStaticQuery(graphql`
+		query MyQuery {
+			wpPage(id: {eq: "cG9zdDoxMDg1NQ=="}) {
+				content
+			}
+		}
+	`);
 
 	return (
 		<>
@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
 					padding: `0 1.0875rem 1.45rem`,
 				}}
 			>
-				{/* <Markup content={data.page.content} /> */}
+				<Markup content={data.wpPage.content} />
 				<footer
 					style={{
 						marginTop: `2rem`,
