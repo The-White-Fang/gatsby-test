@@ -7,22 +7,12 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
-import { Markup } from 'interweave';
 
 
 import Header from "./header";
 import "./layout.css";
 
 const Layout = ({ children }) => {
-	const data = useStaticQuery(graphql`
-		query MyQuery {
-			wpPage(id: {eq: "cG9zdDoxMDg1NQ=="}) {
-				content
-			}
-		}
-	`);
-
 	return (
 		<>
 			<Header siteTitle={`Page`} />
@@ -33,7 +23,7 @@ const Layout = ({ children }) => {
 					padding: `0 1.0875rem 1.45rem`,
 				}}
 			>
-				<Markup content={data.wpPage.content} />
+				{children}
 				<footer
 					style={{
 						marginTop: `2rem`,

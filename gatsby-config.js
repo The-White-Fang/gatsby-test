@@ -34,14 +34,27 @@ module.exports = {
         resolve: `gatsby-source-wordpress`,
         options: {
             // Your WordPress source.
-            baseUrl: `https://www.registerpartnership.in/`,
 			url: 'https://www.registerpartnership.in/graphql',
-            protocol: `https`,
             // Only fetches posts, tags and categories from the baseUrl.
             includedRoutes: ['**/posts', '**/tags', '**/categories'],
             // Not using ACF so putting it off.
             useACF: false
         }
     },
+	{
+		resolve: 'gatsby-source-gravityforms',
+		options: {
+            baseUrl: `https://www.registerpartnership.in`,
+			allowSelfSigned: false,
+			api: {
+				key: 'ck_3f41b25468335a28c3346b013d73c4937474eb77',
+				secret: 'cs_ef3b40d7125af61b87ebe128e8284b8a8a222185'
+			},
+			basicAuth: {
+				username: 'himanshujain1987@gmail.com',
+				password: '0rb1 h2Yy pvYJ PlDK nx69 xQIv',
+			},
+		}
+	}
   ],
 }
